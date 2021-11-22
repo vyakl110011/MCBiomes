@@ -28,5 +28,18 @@ width = 16
 height = 16
 print(layer.getInts(x, y, width, height))
 ```
+## Generate image
+```python
+from mcbiomes import genLayer as gl
+
+seed = 12345
+layer = gl.genlayer(seed)
+x = 0
+y = 0
+width = 512
+height = 512
+image = gl.getImage(layer.getInts(x, y, width, height), width, height)
+image.save("image.jpg")
+```
 ## Telegram
 -  https://t.me/code_writing_machine

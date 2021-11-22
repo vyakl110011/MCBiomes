@@ -22,7 +22,6 @@ class GenLayerVoronoiZoom(Main):
             i2 = aint[0 + k1 * k]
             for l1 in range(k - 1):
                 j2 = aint[l1 + (k1 + 1) * k]
-                d0 = 3.6
                 self.initChunkSeed((k1 + i << 2, k1 + j << 2))
 
                 d1 = (self.nextIntGen(1024) / 1024 - 0.5) * 3.6
