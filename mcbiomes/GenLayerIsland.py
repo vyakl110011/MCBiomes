@@ -1,4 +1,4 @@
-from GenLayer.Layer import Main
+from mcbiomes.Layer import Main
 
 
 class GenLayerIsland(Main):
@@ -13,10 +13,8 @@ class GenLayerIsland(Main):
 
                 self.putStorage(z, x, 1 if self.nextIntGen(10) == 0 else 0)
 
-
-
         if 0 >= aX > -aW and 0 >= aZ > -aH:
             self.putStorage(-aZ, -aX, 1)
-        aint=self.getStorageView(aW, aH)
+        aint = self.getStorageView(aW, aH)
 
         return aint

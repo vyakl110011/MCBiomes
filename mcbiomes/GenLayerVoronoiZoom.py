@@ -1,11 +1,11 @@
-from GenLayer.Layer import Main
+from mcbiomes.Layer import Main
 import numpy as np
 
 
 class GenLayerVoronoiZoom(Main):
-    def __init__(self, seed, layer,goup):
+    def __init__(self, seed, layer, goup):
         super().__init__(seed)
-        self.parent = [(layer,goup)]
+        self.parent = [(layer, goup)]
 
     def getInts(self, aX, aY, aW, aH):
         aX -= 2
@@ -17,7 +17,7 @@ class GenLayerVoronoiZoom(Main):
         aint = self.parent[0][0].getInts(i, j, k, l)
         i1 = k - 1 << 2
         j1 = k - 1 << 2
-        aint1 = np.empty(i1 * j1,dtype=int)
+        aint1 = np.empty(i1 * j1, dtype=int)
         for k1 in range(l - 1):
             i2 = aint[0 + k1 * k]
             for l1 in range(k - 1):
@@ -56,8 +56,15 @@ class GenLayerVoronoiZoom(Main):
                         j3 += 1
                 i2 = k2
                 j2 = l2
-        aint2 = np.empty(aW*aH,dtype=int)
+        aint2 = np.empty(aW * aH, dtype=int)
         for l3 in range(aH):
-            aint2[l3 * aW:(l3 + 1) * aW] = np.copy(aint1[(l3 + (aY & 3)) * i1 + (aX & 3):(l3 + (aY & 3)) * i1 + (aX & 3) + aW])
+            aint2[l3 * aW : (l3 + 1) * aW] = np.copy(
+                aint1[
+                    (l3 + (aY & 3)) * i1
+                    + (aX & 3) : (l3 + (aY & 3)) * i1
+                    + (aX & 3)
+                    + aW
+                ]
+            )
 
         return aint2

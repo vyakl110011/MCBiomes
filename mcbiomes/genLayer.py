@@ -2,27 +2,27 @@ from copy import deepcopy
 
 from javarandom import Random
 
-import GenLayer.GenLayerAddIsland as g3
-import GenLayer.GenLayerAddMushroomIsland as g8
-import GenLayer.GenLayerAddSnow as g6
-import GenLayer.GenLayerBiome as g11
-import GenLayer.GenLayerBiomeEdge as g12
-import GenLayer.GenLayerDeepOcean as g9
-import GenLayer.GenLayerEdge as g7
-import GenLayer.GenLayerHills as g13
-import GenLayer.GenLayerIsland as g1
-import GenLayer.GenLayerRareBiome as g16
-import GenLayer.GenLayerRemoveTooMuchOcean as g5
-import GenLayer.GenLayerRiver as g14
-import GenLayer.GenLayerRiverInit as g10
-import GenLayer.GenLayerRiverMix as g18
-import GenLayer.GenLayerShore as g17
-import GenLayer.GenLayerSmooth as g15
-import GenLayer.GenLayerVoronoiZoom as g19
-import GenLayer.GenLayerZoom as g4
+import mcbiomes.GenLayerAddIsland as g3
+import mcbiomes.GenLayerAddMushroomIsland as g8
+import mcbiomes.GenLayerAddSnow as g6
+import mcbiomes.GenLayerBiome as g11
+import mcbiomes.GenLayerBiomeEdge as g12
+import mcbiomes.GenLayerDeepOcean as g9
+import mcbiomes.GenLayerEdge as g7
+import mcbiomes.GenLayerHills as g13
+import mcbiomes.GenLayerIsland as g1
+import mcbiomes.GenLayerRareBiome as g16
+import mcbiomes.GenLayerRemoveTooMuchOcean as g5
+import mcbiomes.GenLayerRiver as g14
+import mcbiomes.GenLayerRiverInit as g10
+import mcbiomes.GenLayerRiverMix as g18
+import mcbiomes.GenLayerShore as g17
+import mcbiomes.GenLayerSmooth as g15
+import mcbiomes.GenLayerVoronoiZoom as g19
+import mcbiomes.GenLayerZoom as g4
 
 
-def genlayer(seed, customized):
+def genlayer(seed, customized=[0]):
     # customized hold 0 for normal, 1 for large and 2 for fully cuztomized, 4 for default1.1, then it holds biomeSize and river size then chunk composition
 
     # first stack from 1:4096 to 1:256
@@ -57,8 +57,8 @@ def genlayer(seed, customized):
 
     # starting biome stack
     lvt81 = g11.GenLayerBiome(200, genlayerdeepocean, customized, 0)  # 19
-    genlayer6 = g4.GenLayerZoom(1000, lvt81,  0, 1, 1)  # 20
-    genlayer6 = g4.GenLayerZoom(1001, genlayer6,  0, 1, 1)  #  21
+    genlayer6 = g4.GenLayerZoom(1000, lvt81, 0, 1, 1)  # 20
+    genlayer6 = g4.GenLayerZoom(1001, genlayer6, 0, 1, 1)  # 21
     genlayerbiomeedge = g12.GenLayerBiomeEdge(1000, genlayer6, 1)  # 22
     # end Biome stack
 
@@ -102,11 +102,11 @@ def matchBiomes(self, master, indice, customized):
     seed, biomeId, px, pz = master[indice]
 
     genlayerFinal = self.genlayer(seed, customized)
-    l = genlayerFinal.getInts(px, pz, 1, 1)
+    lr = genlayerFinal.getInts(px, pz, 1, 1)
 
-    if biomeId == l[0]:
+    if biomeId == lr[0]:
         return True
-    print(l, master[indice])
+    print(lr, master[indice])
     return False
 
 

@@ -1,6 +1,6 @@
 import numpy as np
 
-from GenLayer.Layer import Main
+from mcbiomes.Layer import Main
 
 
 class GenLayerAddMushroomIsland(Main):
@@ -21,7 +21,14 @@ class GenLayerAddMushroomIsland(Main):
                 j2 = aint[j1 + 2 + (i1 + 2) * (aW + 2)]
                 k2 = aint[j1 + 1 + (i1 + 1) * (aW + 2)]
                 self.initChunkSeed((j1 + aX, i1 + aY))
-                if not k2 and not k1 and not l1 and not j2 and not i2 and not self.nextIntGen(100):
+                if (
+                    not k2
+                    and not k1
+                    and not l1
+                    and not j2
+                    and not i2
+                    and not self.nextIntGen(100)
+                ):
                     aint1[j1 + i1 * aW] = 14  # mushroom_island
                 else:
                     aint1[j1 + i1 * aW] = k2

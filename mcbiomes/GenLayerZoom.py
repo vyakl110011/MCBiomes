@@ -1,6 +1,6 @@
 import numpy as np
 
-from GenLayer.Layer import Main
+from mcbiomes.Layer import Main
 
 
 class GenLayerZoom(Main):
@@ -44,8 +44,14 @@ class GenLayerZoom(Main):
 
         aint2 = np.empty(aW * aH, dtype=int)
         for j3 in range(aH):
-            aint2[j3 * aW:(j3 + 1) * aW] = np.copy(
-                aint1[(j3 + (aY & 1)) * newWidth + (aX & 1): (j3 + (aY & 1)) * newWidth + (aX & 1) + aW])
+            aint2[j3 * aW : (j3 + 1) * aW] = np.copy(
+                aint1[
+                    (j3 + (aY & 1)) * newWidth
+                    + (aX & 1) : (j3 + (aY & 1)) * newWidth
+                    + (aX & 1)
+                    + aW
+                ]
+            )
 
         return aint2
 
