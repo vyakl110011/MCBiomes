@@ -21,7 +21,7 @@ from mcbiomes import genLayer as gl
 
 seed = 12345
 customized = [2, 4, 6] # customized hold 0 for normal, 1 for large and 2 for fully cuztomized, 4 for default1.1, then it holds biomeSize and river size then chunk composition
-layer = gl.genlayer(seed)
+layer = gl.genlayer(seed, customized)
 x = 0
 y = 0
 width = 16
