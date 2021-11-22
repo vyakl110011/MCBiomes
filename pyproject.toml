@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.9"
 numpy = "^1.21.4"
 Pillow = "^8.4.0"
+java-random = {url = "https://github.com/MostAwesomeDude/java-random/archive/refs/heads/master.zip"}
 
 [tool.poetry.dev-dependencies]
 
