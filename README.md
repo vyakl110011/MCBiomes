@@ -9,5 +9,9 @@ from mcbiomes import genLayer as gl
 
 seed = 12345
 layer = gl.genlayer(seed)
-print(layer.getInts())
+x = 0
+y = 0
+width = 16
+height = 16
+print(layer.getInts(x, y, width, height))
 ```
