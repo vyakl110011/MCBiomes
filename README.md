@@ -28,5 +28,5 @@ width = 16
 height = 16
 print(layer.getInts(x, y, width, height))
 ```
-## My contacts
+## TG
 -  https://t.me/code_writing_machine
