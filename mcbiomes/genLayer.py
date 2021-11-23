@@ -106,6 +106,18 @@ COLORS = {
 }
 
 
+def isSlimeChunk(seed, chunkX, chunkZ):
+    # https://github.com/Cubitect/cubiomes/blob/849839af55dc3650a00017368761d9189a2ea11a/finders.h#L340
+    rnd = seed
+    rnd += int(chunkX * 0x5AC0DB)
+    rnd += int(chunkX * chunkX * 0x4C1906)
+    rnd += int(chunkZ * 0x5F24F)
+    rnd += int(chunkZ * chunkZ) * 0x4307A7
+    rnd ^= 0x3AD8025F
+    random = Random(rnd)
+    return random.nextInt(10) == 0
+
+
 def getMineshafts(seed, cx0, cz0, cx1, cz1):
     # https://github.com/Cubitect/cubiomes/blob/71ca41e171749799978f3473a052427c9b9f9c96/finders.c#L268
     random = Random(seed)
