@@ -61,7 +61,7 @@ seed = 12345
 x = 0
 y = 0
 village_config = {"salt": 10387312, "regionSize": 32, "chunkRange": 24}
-print(getFeaturePos(village_config, seed, x, y))
+print(gl.getFeaturePos(village_config, seed, x, y))
 ```
 
 
