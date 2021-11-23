@@ -106,6 +106,23 @@ COLORS = {
 }
 
 
+def getMineshafts(seed, cx0, cz0, cx1, cz1):
+    # https://github.com/Cubitect/cubiomes/blob/71ca41e171749799978f3473a052427c9b9f9c96/finders.c#L268
+    random = Random(seed)
+    a = random.nextLong()
+    b = random.nextLong()
+    out = []
+    for i in range(cx0, cx1):
+        aix = i * a ^ seed
+        for j in range(cz0, cz1):
+            random = Random(aix ^ j * b)
+            if random.nextDouble() < 0.004:
+                x = i << 4
+                z = j << 4
+                out.append([x, z])
+    return out
+
+
 def getImage(ints, aW, aH) -> Image.Image:
     ints = np.split(ints, aW)
     image = Image.new("RGB", (aW, aH))
