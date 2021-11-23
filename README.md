@@ -60,8 +60,8 @@ from mcbiomes import genLayer as gl
 seed = 12345
 x = 0
 y = 0
-village_config = {"salt": 10387312, "regionSize": 32, "chunkRange": 24}
-print(gl.getFeaturePos(village_config, seed, x, y))
+config = {"salt": 10387312, "regionSize": 32, "chunkRange": 24} # village
+print(gl.getFeaturePos(config, seed, x, y))
 ```
 
 
