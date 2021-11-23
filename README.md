@@ -41,5 +41,21 @@ height = 512
 image = gl.getImage(layer.getInts(x, y, width, height), width, height)
 image.save("image.jpg")
 ```
+
+## Structure generating
+```python
+from mcbiomes import genLayer as gl
+
+seed = 12345
+x = 0
+y = 0
+width = 16
+height = 16
+
+mineshafts = gl.getMineshafts(seed, x, y, width, height) 
+print(mineshafts) 
+```
+
+
 ## Telegram
 -  https://t.me/code_writing_machine
