@@ -42,7 +42,7 @@ image = gl.getImage(layer.getInts(x, y, width, height), width, height)
 image.save("image.jpg")
 ```
 
-## Structure generating
+## Generate structure
 ```python
 from mcbiomes import genLayer as gl
 
