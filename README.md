@@ -3,7 +3,7 @@
 ```bash
 pip install -U https://github.com/vyakl110011/MCBiomes/archive/refs/heads/master.zip
 ```
-## Base usage (get chunk data, see [https://github.com/toolbox4minecraft/amidst/wiki/Biome-Color-Table](https://github.com/toolbox4minecraft/amidst/wiki/Biome-Color-Table))
+## Base usage (get chunk data, see [Biome-Color-Table](https://github.com/toolbox4minecraft/amidst/wiki/Biome-Color-Table))
 ```python
 from mcbiomes import genLayer as gl
 
@@ -41,5 +41,19 @@ height = 512
 image = gl.getImage(layer.getInts(x, y, width, height), width, height)
 image.save("image.jpg")
 ```
+
+## Generate structure
+```python
+from mcbiomes import genLayer as gl
+
+seed = 12345
+x = 0
+y = 0
+width = 16
+height = 16
+print(gl.getMineshafts(seed, x, y, width, height)) 
+```
+
+
 ## Telegram
 -  https://t.me/code_writing_machine
