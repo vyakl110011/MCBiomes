@@ -51,9 +51,7 @@ x = 0
 y = 0
 width = 16
 height = 16
-
-mineshafts = gl.getMineshafts(seed, x, y, width, height) 
-print(mineshafts) 
+print(gl.getMineshafts(seed, x, y, width, height)) 
 ```
 
 
