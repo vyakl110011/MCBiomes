@@ -53,6 +53,15 @@ width = 16
 height = 16
 print(gl.getMineshafts(seed, x, y, width, height)) 
 ```
+## See [finders.h](https://github.com/Cubitect/cubiomes/blob/849839af55dc3650a00017368761d9189a2ea11a/finders.h)
+```python
+from mcbiomes import genLayer as gl
+
+seed = 12345
+x = 0
+y = 0
+print(getFeaturePos({"salt": 10387312, "regionSize": 32, "chunkRange": 24}, seed, x, y))
+```
 
 
 ## Telegram
