@@ -41,29 +41,5 @@ height = 512
 image = gl.getImage(layer.getInts(x, y, width, height), width, height)
 image.save("image.jpg")
 ```
-
-## Generate structure
-```python
-from mcbiomes import genLayer as gl
-
-seed = 12345
-x = 0
-y = 0
-width = 16
-height = 16
-print(gl.getMineshafts(seed, x, y, width, height)) 
-```
-## See [finders.h](https://github.com/Cubitect/cubiomes/blob/849839af55dc3650a00017368761d9189a2ea11a/finders.h)
-```python
-from mcbiomes import genLayer as gl
-
-seed = 12345
-x = 0
-y = 0
-config = {"salt": 10387312, "regionSize": 32, "chunkRange": 24} # village
-print(gl.getFeaturePos(config, seed, x, y))
-```
-
-
 ## Telegram
 -  https://t.me/code_writing_machine
