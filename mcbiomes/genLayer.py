@@ -23,7 +23,7 @@ import mcbiomes.GenLayerSmooth as g15
 import mcbiomes.GenLayerVoronoiZoom as g19
 import mcbiomes.GenLayerZoom as g4
 
-from constants import COLOR_MAP
+from .constants import COLOR_MAP
 
 
 def getFeatureChunkInRegion(config, seed, regX, regZ):
