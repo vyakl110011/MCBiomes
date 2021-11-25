@@ -26,6 +26,75 @@ import mcbiomes.GenLayerZoom as g4
 from .constants import COLOR_MAP
 
 
+def getPopulationSeed(seed, x, z):
+    random = Random(seed)
+    a = random.nextLong()
+    b = random.nextLong()
+    a |= 1
+    b |= 1
+    return (x * a + z * b) ^ seed
+
+
+def getRegPos(config, seed, regX, regZ):
+    random = Random(regX * 341873128712 + regZ * 132897987541 + seed + config["salt"])
+    x = int(
+        (int(regX) * config["regionSize"] + random.nextInt(config["chunkRange"])) << 4
+    )
+    z = int(
+        (int(regZ) * config["regionSize"] + random.nextInt(config["chunkRange"])) << 4
+    )
+    return [x, z]
+
+
+def setAttemptSeed(seed, cx, cz):
+    seed ^= int(cx >> 4) ^ (int(cz >> 4) << 4)
+    random = Random(seed)
+    seed = random.next(31)
+    return seed
+
+
+def getStructurePos(config, seed, regX, regZ):
+    struct = config["structType"]
+    if struct in [
+        "Feature",
+        "Desert_Pyramid",
+        "Jungle_Pyramid",
+        "Swamp_Hut",
+        "Igloo",
+        "Village",
+        "Ocean_Ruin",
+        "Shipwreck",
+        "Ruined_Portal",
+        "Ruined_Portal_N",
+        "Outpost",
+    ]:
+        pos = getFeaturePos(config, seed, regX, regZ)
+    if struct in ["Monument", "Mansion", "End_City"]:
+        pos = getLargeStructurePos(config, seed, regX, regZ)
+    if struct == "Treasure":
+        x = int((int(regX) << 4) + 9)
+        z = int((int(regZ) << 4) + 9)
+        pos = [x, z]
+    if struct == "Mineshaft":
+        pos = getMineshafts(seed, regX, regZ, regX, regZ)
+    if struct == "Fortress":
+        seed = setAttemptSeed(seed, regX << 4, regZ << 4)
+        random = Random(seed)
+        x = int(((int(regX) << 4) + random.nextInt(8) + 4) << 4)
+        z = int(((int(regZ) << 4) + random.nextInt(8) + 4) << 4)
+        pos = [x, z]
+    if struct == "Bastion":
+        pos = getRegPos(config, seed, regX, regZ)
+    if struct == "End_Gateway":
+        x = int((int(regX) << 4))
+        z = int((int(regZ) << 4))
+        random = Random(getPopulationSeed(seed, x, z))
+        x += random.nextInt(16)
+        z += random.nextInt(16)
+        return [x, z]
+    return pos
+
+
 def getLargeStructureChunkInRegion(config, seed, regX, regZ):
     pos = []
     K = 0x5DEECE66D
