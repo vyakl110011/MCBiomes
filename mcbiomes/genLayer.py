@@ -23,7 +23,101 @@ import mcbiomes.GenLayerSmooth as g15
 import mcbiomes.GenLayerVoronoiZoom as g19
 import mcbiomes.GenLayerZoom as g4
 
-from .constants import COLOR_MAP
+from .constants import COLOR_MAP, BIOMES
+
+
+def getBiomeAt(layer, x, z):
+    ints = layer.getInts(x, z, 16, 16)
+    return max(ints, key=list(ints).count)
+
+
+def isOceanic(biome):
+    return biome in [
+        BIOMES["ocean"],
+        BIOMES["frozen_ocean"],
+        BIOMES["warm_ocean"],
+        BIOMES["lukewarm_ocean"],
+        BIOMES["cold_ocean"],
+        BIOMES["deep_ocean"],
+        BIOMES["deep_warm_ocean"],
+        BIOMES["deep_lukewarm_ocean"],
+        BIOMES["deep_cold_ocean"],
+        BIOMES["deep_frozen_ocean"],
+    ]
+
+
+def isDeepOcean(biome):
+    return biome in [
+        BIOMES["deep_ocean"],
+        BIOMES["deep_warm_ocean"],
+        BIOMES["deep_lukewarm_ocean"],
+        BIOMES["deep_cold_ocean"],
+        BIOMES["deep_frozen_ocean"],
+    ]
+
+
+def isViableFeatureBiome(config, biome):
+    struct = config["structType"]
+    if struct == "Desert_Pyramid":
+        return biome == BIOMES["desert"] or biome == BIOMES["desert_hills"]
+    if struct == "Jungle_Pyramid":
+        return (
+            biome == BIOMES["jungle"]
+            or biome == BIOMES["jungle_hills"]
+            or biome == BIOMES["bamboo_jungle"]
+            or biome == BIOMES["bamboo_jungle_hills"]
+        )
+    if struct == "Swamp_Hut":
+        return biome == BIOMES["swamp"]
+    if struct == "Igloo":
+        return biome == BIOMES["snowy_tundra"] or biome == BIOMES["snowy_taiga"]
+    if struct == "Ocean_Ruin":
+        return isOceanic(biome)
+    if struct == "Shipwreck":
+        return (
+            isOceanic(biome)
+            or biome == BIOMES["beach"]
+            or biome == BIOMES["snowy_beach"]
+        )
+    if struct in ["Ruined_Portal", "Ruined_Portal_N"]:
+        return True
+    if struct == "Treasure":
+        return biome == BIOMES["beach"] or biome == BIOMES["snowy_beach"]
+    if struct == "Mineshaft":
+        return True
+    if struct == "Monument":
+        return isDeepOcean(biome)
+    if struct == "Outpost":
+        return True
+    if struct == "Village":
+        return (
+            biome == BIOMES["plains"]
+            or biome == BIOMES["desert"]
+            or biome == BIOMES["savanna"]
+            or biome == BIOMES["taiga"]
+            or biome == BIOMES["snowy_tundra"]
+        )
+    if struct == "Mansion":
+        return biome == BIOMES["dark_forest"] or biome == BIOMES["dark_forest_hills"]
+    if struct == "Fortress":
+        return (
+            biome == BIOMES["ether_wastes"]
+            or biome == BIOMES["soul_sand_valley"]
+            or biome == BIOMES["warped_forest"]
+            or biome == BIOMES["crimson_forest"]
+            or biome == BIOMES["basalt_deltas"]
+        )
+    if struct == "Bastion":
+        return (
+            biome == BIOMES["nether_wastes"]
+            or biome == BIOMES["soul_sand_valley"]
+            or biome == BIOMES["warped_forest"]
+            or biome == BIOMES["crimson_forest"]
+        )
+    if struct == "End_City":
+        return biome == BIOMES["end_midlands"] or biome == BIOMES["end_highlands"]
+    if struct == "End_Gateway":
+        return biome == BIOMES["end_highlands"]
 
 
 def getPopulationSeed(seed, x, z):
