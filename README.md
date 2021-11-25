@@ -25,5 +25,17 @@ layer = gl.genlayer(seed=12345)
 image = gl.getImage(ints=layer.getInts(aX=0, aY=0, aW=512, aH=512), aW=512, aH=512)
 image.save("image.jpg")
 ```
+## Generate structure
+```python
+from mcbiomes import genLayer as gl
+from mcbiomes.constants import RUINED_PORTAL_CONFIG
+
+seed = -307211961538626596
+layer = gl.genlayer(seed=seed)
+pos = gl.getStructurePos(RUINED_PORTAL_CONFIG, seed, 0, 0)
+biome = gl.getBiomeAt(layer, pos[0], pos[1])
+if gl.isViableFeatureBiome(RUINED_PORTAL_CONFIG, biome):
+    print(pos)
+```
 ## Telegram
 -  https://t.me/code_writing_machine
