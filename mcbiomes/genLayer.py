@@ -27,7 +27,7 @@ from .constants import COLOR_MAP, BIOMES
 
 
 def getBiomeAt(layer, x, z):
-    ints = layer.getInts(x, z, 16, 16)
+    ints = layer.getInts(int(x / 16), int(z / 16), 16, 16)
     return max(ints, key=list(ints).count)
 
 
