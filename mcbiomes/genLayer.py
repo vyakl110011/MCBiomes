@@ -91,7 +91,7 @@ def getStructurePos(config, seed, regX, regZ):
         random = Random(getPopulationSeed(seed, x, z))
         x += random.nextInt(16)
         z += random.nextInt(16)
-        return [x, z]
+        pos = [x, z]
     return pos
 
 
