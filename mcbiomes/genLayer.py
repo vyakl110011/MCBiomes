@@ -26,6 +26,33 @@ import mcbiomes.GenLayerZoom as g4
 from .constants import COLOR_MAP
 
 
+def getLargeStructureChunkInRegion(config, seed, regX, regZ):
+    pos = []
+    K = 0x5DEECE66D
+    M = (1 << 48) - 1
+    b = 0xB
+    seed = seed + regX * 341873128712 + regZ * 132897987541 + config["salt"]
+    seed = seed ^ K
+    seed = (seed * K + b) & M
+    pos.append(int(seed >> 17) % config["chunkRange"])
+    seed = (seed * K + b) & M
+    pos[0] += int(seed >> 17) % config["chunkRange"]
+    seed = (seed * K + b) & M
+    pos.append(int(seed >> 17) % config["chunkRange"])
+    seed = (seed * K + b) & M
+    pos[1] += int(seed >> 17) % config["chunkRange"]
+    pos[0] >>= 1
+    pos[1] >>= 1
+    return pos
+
+
+def getLargeStructurePos(config, seed, regX, regZ):
+    pos = getLargeStructureChunkInRegion(config, seed, regX, regZ)
+    pos[0] = int((int(regX) * config["regionSize"] + pos[0]) << 4)
+    pos[1] = int((int(regZ) * config["regionSize"] + pos[1]) << 4)
+    return pos
+
+
 def getFeatureChunkInRegion(config, seed, regX, regZ):
     # https://github.com/Cubitect/cubiomes/blob/849839af55dc3650a00017368761d9189a2ea11a/finders.h#L718
     pos = []

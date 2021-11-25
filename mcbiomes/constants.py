@@ -79,3 +79,189 @@ COLOR_MAP = {
     172: [73, 144, 123],
     173: [64, 54, 54],
 }
+
+LARGE_STRUCT = 1
+CHUNK_STRUCT = 2
+
+FEATURE_CONFIG = {
+    "salt": 14357617,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Feature",
+    "properties": 0,
+}
+IGLOO_CONFIG_112 = {
+    "salt": 14357617,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Igloo",
+    "properties": 0,
+}
+SWAMP_HUT_CONFIG_112 = {
+    "salt": 14357617,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Swamp_Hut",
+    "properties": 0,
+}
+DESERT_PYRAMID_CONFIG_112 = {
+    "salt": 14357617,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Desert_Pyramid",
+    "properties": 0,
+}
+JUNGLE_PYRAMID_CONFIG_112 = {
+    "salt": 14357617,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Jungle_Pyramid",
+    "properties": 0,
+}
+OCEAN_RUIN_CONFIG_115 = {
+    "salt": 14357621,
+    "regionSize": 16,
+    "chunkRange": 8,
+    "structType": "Ocean_Ruin",
+    "properties": 0,
+}
+SHIPWRECK_CONFIG_115 = {
+    "salt": 165745295,
+    "regionSize": 15,
+    "chunkRange": 7,
+    "structType": "Shipwreck",
+    "properties": 0,
+}
+DESERT_PYRAMID_CONFIG = {
+    "salt": 14357617,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Desert_Pyramid",
+    "properties": 0,
+}
+IGLOO_CONFIG = {
+    "salt": 14357618,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Igloo",
+    "properties": 0,
+}
+JUNGLE_PYRAMID_CONFIG = {
+    "salt": 14357619,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Jungle_Pyramid",
+    "properties": 0,
+}
+SWAMP_HUT_CONFIG = {
+    "salt": 14357620,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Swamp_Hut",
+    "properties": 0,
+}
+OUTPOST_CONFIG = {
+    "salt": 165745296,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Outpost",
+    "properties": 0,
+}
+VILLAGE_CONFIG = {
+    "salt": 10387312,
+    "regionSize": 32,
+    "chunkRange": 24,
+    "structType": "Village",
+    "properties": 0,
+}
+OCEAN_RUIN_CONFIG = {
+    "salt": 14357621,
+    "regionSize": 20,
+    "chunkRange": 12,
+    "structType": "Ocean_Ruin",
+    "properties": 0,
+}
+SHIPWRECK_CONFIG = {
+    "salt": 165745295,
+    "regionSize": 24,
+    "chunkRange": 20,
+    "structType": "Shipwreck",
+    "properties": 0,
+}
+MONUMENT_CONFIG = {
+    "salt": 10387313,
+    "regionSize": 32,
+    "chunkRange": 27,
+    "structType": "Monument",
+    "properties": LARGE_STRUCT,
+}
+MANSION_CONFIG = {
+    "salt": 10387319,
+    "regionSize": 80,
+    "chunkRange": 60,
+    "structType": "Mansion",
+    "properties": LARGE_STRUCT,
+}
+RUINED_PORTAL_CONFIG = {
+    "salt": 34222645,
+    "regionSize": 40,
+    "chunkRange": 25,
+    "structType": "Ruined_Portal",
+    "properties": 0,
+}
+RUINED_PORTAL_N_CONFIG = {
+    "salt": 34222645,
+    "regionSize": 25,
+    "chunkRange": 15,
+    "structType": "Ruined_Portal_N",
+    "properties": 0,
+}
+TREASURE_CONFIG = {
+    "salt": 10387320,
+    "regionSize": 1,
+    "chunkRange": 1,
+    "structType": "Treasure",
+    "properties": CHUNK_STRUCT,
+}
+MINESHAFT_CONFIG = {
+    "salt": 0,
+    "regionSize": 1,
+    "chunkRange": 1,
+    "structType": "Mineshaft",
+    "properties": CHUNK_STRUCT,
+}
+FORTRESS_CONFIG_115 = {
+    "salt": 0,
+    "regionSize": 16,
+    "chunkRange": 8,
+    "structType": "Fortress",
+    "properties": 0,
+}
+FORTRESS_CONFIG = {
+    "salt": 30084232,
+    "regionSize": 27,
+    "chunkRange": 23,
+    "structType": "Fortress",
+    "properties": 0,
+}
+BASTION_CONFIG = {
+    "salt": 30084232,
+    "regionSize": 27,
+    "chunkRange": 23,
+    "structType": "Bastion",
+    "properties": 0,
+}
+END_CITY_CONFIG = {
+    "salt": 10387313,
+    "regionSize": 20,
+    "chunkRange": 9,
+    "structType": "End_City",
+    "properties": LARGE_STRUCT,
+}
+END_GATEWAY_CONFIG = {
+    "salt": 40013,
+    "regionSize": 1,
+    "chunkRange": 1,
+    "structType": "End_Gateway",
+    "properties": CHUNK_STRUCT,
+}
