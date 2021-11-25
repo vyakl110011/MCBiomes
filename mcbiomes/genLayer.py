@@ -1,5 +1,7 @@
 from copy import deepcopy
 import numpy as np
+import random
+import sys
 
 from javarandom import Random
 from PIL import Image
@@ -24,6 +26,10 @@ import mcbiomes.GenLayerVoronoiZoom as g19
 import mcbiomes.GenLayerZoom as g4
 
 from .constants import COLOR_MAP, BIOMES
+
+
+def generateRandomSeed():
+    return random.randint(-sys.maxsize, sys.maxsize)
 
 
 def getBiomeAt(layer, x, z):
