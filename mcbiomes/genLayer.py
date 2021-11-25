@@ -1,7 +1,7 @@
 from copy import deepcopy
 import numpy as np
 import random
-import sys
+from sys import maxsize
 
 from javarandom import Random
 from PIL import Image
@@ -29,7 +29,7 @@ from .constants import COLOR_MAP, BIOMES
 
 
 def generateRandomSeed():
-    return random.randint(-sys.maxsize, sys.maxsize)
+    return random.randint(-maxsize, maxsize)
 
 
 def getBiomeAt(layer, x, z):
