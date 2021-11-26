@@ -28,6 +28,15 @@ import mcbiomes.GenLayerZoom as g4
 from .constants import COLOR_MAP, BIOMES
 
 
+def initFirstStronghold(seed):
+    random = Random(seed)
+    angle = 2.0 * np.pi * random.nextDouble()
+    dist = (4.0 * 32.0) + (random.nextDouble() - 0.5) * 32 * 2.5
+    x = (int(round(np.cos(angle) * dist)) << 4) + 8
+    z = (int(round(np.sin(angle) * dist)) << 4) + 8
+    return [x, z]
+
+
 def generateRandomSeed():
     return random.randint(-maxsize, maxsize)
 
