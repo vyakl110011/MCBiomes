@@ -28,6 +28,27 @@ import mcbiomes.GenLayerZoom as g4
 from .constants import COLOR_MAP, BIOMES
 
 
+def chunkGenerateRnd(worldSeed, chunkX, chunkZ):
+    random = Random(worldSeed)
+    return (random.nextLong() * chunkX) ^ (random.nextLong() * chunkZ) ^ worldSeed
+
+
+def getHouseList(worldSeed, chunkX, chunkZ):
+    random = Random(chunkGenerateRnd(worldSeed, chunkX, chunkZ))
+    random.nextInt()
+    return {
+        "HouseSmall": random.nextInt(4 - 2 + 1) + 2,
+        "Church": random.nextInt(1 - 0 + 1) + 0,
+        "Library": random.nextInt(2 - 0 + 1) + 0,
+        "WoodHut": random.nextInt(5 - 2 + 1) + 2,
+        "Butcher": random.nextInt(2 - 0 + 1) + 0,
+        "FarmLarge": random.nextInt(4 - 1 + 1) + 1,
+        "FarmSmall": random.nextInt(4 - 2 + 1) + 2,
+        "Blacksmith": random.nextInt(1 - 0 + 1) + 0,
+        "HouseLarge": random.nextInt(3 - 0 + 1) + 0,
+    }
+
+
 def initFirstStronghold(seed):
     random = Random(seed)
     angle = 2.0 * np.pi * random.nextDouble()
