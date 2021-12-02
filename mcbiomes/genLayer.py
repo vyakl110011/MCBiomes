@@ -312,8 +312,6 @@ def getMineshafts(seed, cx0, cz0, cx1, cz1):
 
 def getImage(ints, aW, aH) -> Image.Image:
     ints = np.split(ints, aW)
-    ints = np.fliplr(ints)
-    ints = np.rot90(ints)
     image = Image.new("RGB", (aW, aH))
     for x, line in enumerate(ints):
         for y, color in enumerate(line):
